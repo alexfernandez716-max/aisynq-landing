@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AiSynq — AI for Automotive Intelligence</title>
+  <meta name="description" content="The daily intelligence platform built for automotive dealership professionals. Personalized AI briefings, lessons, and prompts — delivered every morning at 7 AM." />
+  <meta property="og:title" content="AiSynq — AI for Automotive Intelligence" />
+  <meta property="og:description" content="The daily intelligence platform built for automotive dealership professionals." />
+  <meta property="og:image" content="https://files.manuscdn.com/user_upload_by_module/session_file/310519663372857082/OYdLZCSgizCGELoY.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0F1B3D;
+      --navy-light: #1A2B52;
+      --blue: #2563EB;
+      --blue-light: #3B82F6;
+      --cyan: #00D4FF;
+      --white: #FFFFFF;
+      --gray-100: #F8FAFC;
+      --gray-200: #E2E8F0;
+      --gray-500: #64748B;
+      --gray-700: #334155;
+      --green: #10B981;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(15, 27, 61, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+    }
+
+    .nav-logo-text {
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: 2px;
+    }
+
+    .nav-logo-text span {
+      font-weight: 800;
+      color: var(--cyan);
+    }
+
+    .nav-cta {
+      background: var(--blue);
+      color: var(--white);
+      padding: 10px 24px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-cta:hover {
+      background: var(--blue-light);
+      transform: translateY(-1px);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(37,99,235,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(0,212,255,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(37,99,235,0.15);
+      border: 1px solid rgba(37,99,235,0.3);
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 32px;
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .hero-logo {
+      width: 100px;
+      height: 100px;
+      border-radius: 24px;
+      margin-bottom: 32px;
+      box-shadow: 0 0 60px rgba(37,99,235,0.4);
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 8vw, 80px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+      max-width: 900px;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--cyan), var(--blue-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: rgba(255,255,255,0.65);
+      max-width: 600px;
+      margin-bottom: 48px;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 64px;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+      padding: 16px 36px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(37,99,235,0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      padding: 16px 36px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 1px solid rgba(255,255,255,0.15);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-2px);
+    }
+
+    .hero-proof {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: rgba(255,255,255,0.45);
+      font-size: 13px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-proof-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-proof-item .check {
+      color: var(--green);
+      font-size: 14px;
+    }
+
+    /* ── FEATURES ── */
+    .section {
+      padding: 100px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      text-align: center;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .section-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 64px;
+      line-height: 1.7;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 32px;
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(37,99,235,0.3);
+      transform: translateY(-4px);
+    }
+
+    .feature-icon {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .feature-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .feature-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+    }
+
+    /* ── PRICING ── */
+    .pricing-section {
+      padding: 100px 24px;
+      background: rgba(255,255,255,0.02);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .pricing-card {
+      max-width: 480px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(0,212,255,0.05));
+      border: 1px solid rgba(37,99,235,0.3);
+      border-radius: 32px;
+      padding: 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+    }
+
+    .pricing-badge {
+      display: inline-block;
+      background: rgba(16,185,129,0.15);
+      border: 1px solid rgba(16,185,129,0.3);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+
+    .pricing-price {
+      font-size: 72px;
+      font-weight: 900;
+      letter-spacing: -3px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .pricing-price sup {
+      font-size: 28px;
+      font-weight: 700;
+      vertical-align: super;
+      letter-spacing: 0;
+    }
+
+    .pricing-period {
+      font-size: 16px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 32px;
+    }
+
+    .pricing-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 40px;
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 15px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .pricing-features li:last-child { border-bottom: none; }
+
+    .pricing-features .check {
+      color: var(--green);
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pricing-cta {
+      display: block;
+      background: var(--blue);
+      color: var(--white);
+      padding: 18px 40px;
+      border-radius: 999px;
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+      margin-bottom: 16px;
+    }
+
+    .pricing-cta:hover {
+      background: var(--blue-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(37,99,235,0.4);
+    }
+
+    .pricing-note {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ── ROLES ── */
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-top: 48px;
+    }
+
+    .role-chip {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      transition: all 0.2s;
+    }
+
+    .role-chip:hover {
+      background: rgba(37,99,235,0.15);
+      border-color: rgba(37,99,235,0.3);
+      color: var(--white);
+    }
+
+    /* ── MANAGE SUBSCRIPTION ── */
+    .manage-section {
+      padding: 80px 24px;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .manage-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 48px 40px;
+    }
+
+    .manage-card h2 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .manage-card p {
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 32px;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .manage-btn {
+      display: inline-block;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      margin: 6px;
+    }
+
+    .manage-btn:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 48px 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-size: 22px;
+      font-weight: 300;
+      letter-spacing: 3px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 16px;
+    }
+
+    .footer-logo span { font-weight: 800; color: var(--cyan); }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* ── DRIVE-TIME SECTION ── */
+    .drive-time-section {
+      background: linear-gradient(135deg, rgba(37,99,235,0.08) 0%, rgba(0,212,255,0.04) 100%);
+      border-top: 1px solid rgba(0,212,255,0.12);
+      border-bottom: 1px solid rgba(0,212,255,0.12);
+    }
+
+    .drive-time-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .drive-time-title {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+    }
+
+    .drive-time-desc {
+      font-size: 16px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+
+    .drive-time-features {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .drive-time-feature {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .drive-time-feature-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(0,212,255,0.1);
+      border: 1px solid rgba(0,212,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .drive-time-feature-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 3px;
+    }
+
+    .drive-time-feature-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+
+    /* Audio Player Mockup */
+    .audio-player-mockup {
+      background: #FFFFFF;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.08);
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    .apm-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .apm-badge {
+      background: #EDE9FE;
+      color: #7C3AED;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .apm-duration {
+      font-size: 12px;
+      font-weight: 600;
+      color: #94A3B8;
+    }
+
+    .apm-greeting {
+      font-size: 13px;
+      color: #475569;
+      font-style: italic;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #F1F5F9;
+    }
+
+    .apm-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .apm-skip {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #F1F5F9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .apm-skip span {
+      font-size: 8px;
+      font-weight: 800;
+      color: #64748B;
+      position: absolute;
+      bottom: 5px;
+    }
+
+    .apm-play {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #2563EB;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(37,99,235,0.4);
+      cursor: pointer;
+    }
+
+    .apm-waveform {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      height: 32px;
+      margin-bottom: 14px;
+    }
+
+    .apm-bar {
+      width: 4px;
+      border-radius: 2px;
+      background: #2563EB;
+      opacity: 0.6;
+    }
+
+    .apm-progress {
+      height: 5px;
+      background: #E2E8F0;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .apm-progress-fill {
+      height: 100%;
+      background: #2563EB;
+      border-radius: 3px;
+    }
+
+    .apm-times {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .apm-current {
+      font-size: 11px;
+      font-weight: 600;
+      color: #1E293B;
+    }
+
+    .apm-speed {
+      font-size: 11px;
+      font-weight: 800;
+      color: #475569;
+      background: #F1F5F9;
+      padding: 4px 10px;
+      border-radius: 8px;
+    }
+
+    .apm-total {
+      font-size: 11px;
+      font-weight: 600;
+      color: #94A3B8;
+    }
+
+    .apm-sections {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .apm-section-chip {
+      font-size: 10px;
+      font-weight: 600;
+      color: #64748B;
+      background: #F1F5F9;
+      border: 1px solid #E2E8F0;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .apm-section-chip.active {
+      color: #2563EB;
+      background: #EEF4FF;
+      border-color: #BFDBFE;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .hero { padding: 100px 20px 60px; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-secondary { width: 100%; max-width: 320px; justify-content: center; }
+      .section { padding: 60px 20px; }
+      .pricing-card { padding: 32px 24px; }
+      .manage-card { padding: 32px 24px; }
+      .drive-time-inner { grid-template-columns: 1fr; gap: 48px; }
+      .drive-time-title { font-size: 32px; }
+      .drive-time-visual { order: -1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663372857082/OYdLZCSgizCGELoY.png" alt="AiSynq" />
+      <span class="nav-logo-text">Ai<span>Synq</span></span>
+    </a>
+    <a href="https://buy.stripe.com/6oU3cv1jE4Mxgeo9yt6oo00" class="nav-cta" target="_blank">Start Free Trial</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      Now Available on iOS &amp; Android
+    </div>
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663372857082/OYdLZCSgizCGELoY.png" alt="AiSynq" class="hero-logo" />
+    <h1>The Intelligence Edge<br />for <span class="highlight">Automotive Pros</span></h1>
+    <p class="hero-sub">Every morning at 7 AM, your personalized AI briefing is ready — curated for your role, your brand, and your dealership. Stay ahead of every OEM signal, market shift, and AI breakthrough.</p>
+    <div class="hero-actions">
+      <a href="https://buy.stripe.com/6oU3cv1jE4Mxgeo9yt6oo00" class="btn-primary" target="_blank">
+        Start 7-Day Free Trial
+        <span>→</span>
+      </a>
+      <a href="#features" class="btn-secondary">
+        See What's Inside
+      </a>
+    </div>
+    <div class="hero-proof">
+      <div class="hero-proof-item">
+        <span class="check">✓</span>
+        <span>7-day free trial</span>
+      </div>
+      <div class="hero-proof-item">
+        <span class="check">✓</span>
+        <span>Cancel anytime</span>
+      </div>
+      <div class="hero-proof-item">
+        <span class="check">✓</span>
+        <span>Personalized to your role</span>
+      </div>
+      <div class="hero-proof-item">
+        <span class="check">✓</span>
+        <span>Cancel before day 7, no charge</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <p class="section-label">What's Inside</p>
+    <h2 class="section-title">Everything a dealership<br />professional needs to win with AI</h2>
+    <p class="section-sub">AiSynq delivers five powerful tools in one app — all personalized to your exact role and brand.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📡</div>
+        <div class="feature-title">Daily Intelligence Digest</div>
+        <div class="feature-desc">Every morning at 7 AM, receive a 5-minute briefing covering OEM signals, market trends, vendor news, customer behavior, and AI updates — narrated by a premium AI voice.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <div class="feature-title">Role-Specific Prompt Arsenal</div>
+        <div class="feature-desc">5 fresh AI prompts daily, generated exclusively for your role. A Finance Manager gets F&I prompts. A BDC Manager gets lead response scripts. Never generic, always yours.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📖</div>
+        <div class="feature-title">Daily AI Lessons</div>
+        <div class="feature-desc">5 new lessons every day — a mix of automotive AI and general AI education. Build your AI fluency in 10 minutes a day. Track your streak and weekly progress.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <div class="feature-title">Context-Aware Ask AI</div>
+        <div class="feature-desc">An AI assistant that knows you're a Sales Manager at Honda, not just "a user." Ask anything — objection handling, deal structure, market analysis — and get answers built for your world.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-title">Vehicle Comparison Engine</div>
+        <div class="feature-desc">Instant AI-powered competitive comparisons for your brand's vehicles. When a customer cross-shops, you're ready in seconds — not minutes.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🍤</div>
+        <div class="feature-title">Personalized Audio Briefing</div>
+        <div class="feature-desc">Brian — AiSynq's premium AI voice — greets you by name every morning and narrates your full 6-minute briefing. Listen hands-free on your commute. Built for the road.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRIVE-TIME SPOTLIGHT -->
+  <section class="section drive-time-section" id="audio">
+    <div class="drive-time-inner">
+      <div class="drive-time-text">
+        <p class="section-label">Built for the Road</p>
+        <h2 class="drive-time-title">Your morning briefing.<br /><span class="highlight">Hands-free.</span></h2>
+        <p class="drive-time-desc">Most dealership professionals spend 20–40 minutes commuting every day. AiSynq turns that time into a competitive advantage. Brian — AiSynq's deep, resonant AI voice — delivers your full intelligence briefing the moment you start driving. No screen. No scrolling. Just intelligence.</p>
+        <div class="drive-time-features">
+          <div class="drive-time-feature">
+            <div class="drive-time-feature-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="drive-time-feature-title">Ready at 7 AM</div>
+              <div class="drive-time-feature-desc">Your briefing generates overnight and is waiting when you wake up.</div>
+            </div>
+          </div>
+          <div class="drive-time-feature">
+            <div class="drive-time-feature-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+            </div>
+            <div>
+              <div class="drive-time-feature-title">Greets you by name</div>
+              <div class="drive-time-feature-desc">Brian opens with a personalized greeting tied to your role and brand.</div>
+            </div>
+          </div>
+          <div class="drive-time-feature">
+            <div class="drive-time-feature-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+            </div>
+            <div>
+              <div class="drive-time-feature-title">6-minute full briefing</div>
+              <div class="drive-time-feature-desc">OEM signals, market intel, digital strategy, and your action items — all narrated.</div>
+            </div>
+          </div>
+          <div class="drive-time-feature">
+            <div class="drive-time-feature-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            </div>
+            <div>
+              <div class="drive-time-feature-title">Lesson audio included</div>
+              <div class="drive-time-feature-desc">Every daily lesson is also narrated by Brian — learn while you drive.</div>
+            </div>
+          </div>
+        </div>
+        <a href="https://buy.stripe.com/6oU3cv1jE4Mxgeo9yt6oo00" class="btn-primary" target="_blank" style="display:inline-flex; margin-top: 32px;">
+          Listen to Your First Briefing Free
+          <span>→</span>
+        </a>
+      </div>
+      <div class="drive-time-visual">
+        <div class="audio-player-mockup">
+          <div class="apm-header">
+            <div class="apm-badge">LISTEN TO INTELLIGENCE BRIEFING</div>
+            <div class="apm-duration">6 min</div>
+          </div>
+          <div class="apm-greeting">Good morning, Alex. Your briefing is ready.</div>
+          <div class="apm-controls">
+            <div class="apm-skip">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 17l-5-5 5-5"/><path d="M18 17l-5-5 5-5"/></svg>
+              <span>15</span>
+            </div>
+            <div class="apm-play">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="apm-skip">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 17l5-5-5-5"/><path d="M6 17l5-5-5-5"/></svg>
+              <span>15</span>
+            </div>
+          </div>
+          <div class="apm-waveform">
+            <div class="apm-bar" style="height:14px"></div>
+            <div class="apm-bar" style="height:22px"></div>
+            <div class="apm-bar" style="height:18px"></div>
+            <div class="apm-bar" style="height:26px"></div>
+            <div class="apm-bar" style="height:16px"></div>
+            <div class="apm-bar" style="height:20px"></div>
+            <div class="apm-bar" style="height:14px"></div>
+            <div class="apm-bar" style="height:24px"></div>
+            <div class="apm-bar" style="height:18px"></div>
+          </div>
+          <div class="apm-progress">
+            <div class="apm-progress-fill" style="width: 42%"></div>
+          </div>
+          <div class="apm-times">
+            <span class="apm-current">2:31</span>
+            <div class="apm-speed">1×</div>
+            <span class="apm-total">6:00</span>
+          </div>
+          <div class="apm-sections">
+            <div class="apm-section-chip">OEM Signal</div>
+            <div class="apm-section-chip">Market Intel</div>
+            <div class="apm-section-chip active">Digital Strategy</div>
+            <div class="apm-section-chip">AI Update</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROLES -->
+  <section class="section" style="padding-top: 0;">
+    <p class="section-label">Built For Every Role</p>
+    <h2 class="section-title">Your role. Your content.<br />Your competitive edge.</h2>
+    <p class="section-sub">AiSynq is personalized to your exact position in the dealership — from the showroom floor to the dealer principal's office.</p>
+    <div class="roles-grid">
+      <div class="role-chip">Sales Consultant</div>
+      <div class="role-chip">Sales Manager</div>
+      <div class="role-chip">Finance Manager</div>
+      <div class="role-chip">General Manager</div>
+      <div class="role-chip">BDC Manager</div>
+      <div class="role-chip">Used Car Manager</div>
+      <div class="role-chip">Service Advisor</div>
+      <div class="role-chip">Service Manager</div>
+      <div class="role-chip">Marketing Manager</div>
+      <div class="role-chip">Dealer Principal</div>
+      <div class="role-chip">Parts Manager</div>
+      <div class="role-chip">Controller</div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section" id="subscribe">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <p class="section-label">Simple Pricing</p>
+      <h2 class="section-title">One plan. Everything included.</h2>
+      <p class="section-sub">No tiers. No feature gates. Every subscriber gets the full AiSynq experience.</p>
+      <div class="pricing-card">
+        <div class="pricing-badge">7-Day Free Trial</div>
+        <div class="pricing-price"><sup>$</sup>29<span style="font-size: 36px; font-weight: 700;">.99</span></div>
+        <div class="pricing-period">per month · cancel anytime</div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Daily personalized intelligence digest</li>
+          <li><span class="check">✓</span> 5 role-specific AI prompts every day</li>
+          <li><span class="check">✓</span> 5 AI lessons daily with audio narration</li>
+          <li><span class="check">✓</span> Context-aware Ask AI assistant</li>
+          <li><span class="check">✓</span> Vehicle comparison engine</li>
+          <li><span class="check">✓</span> Personalized morning audio briefing</li>
+          <li><span class="check">✓</span> 7 AM daily push notification</li>
+          <li><span class="check">✓</span> All 12 dealership roles supported</li>
+          <li><span class="check">✓</span> All major US automotive brands</li>
+        </ul>
+        <a href="https://buy.stripe.com/6oU3cv1jE4Mxgeo9yt6oo00" class="pricing-cta" target="_blank">Start My Free Trial →</a>
+        <p class="pricing-note">Credit card required · 7-day free trial · $29.99/month after · Cancel anytime</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANAGE SUBSCRIPTION -->
+  <section class="manage-section" id="manage">
+    <div class="manage-card">
+      <h2>Manage Your Subscription</h2>
+      <p>Already a subscriber? Access your billing, update your payment method, or cancel your subscription below.</p>
+      <a href="https://billing.stripe.com/p/login/bIY3cxdST9Rl" class="manage-btn" target="_blank">Manage Billing</a>
+      <a href="mailto:support@aisynq.ai?subject=Cancel AiSynq Subscription" class="manage-btn">Cancel Subscription</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Ai<span>Synq</span></div>
+    <div class="footer-links">
+      <a href="#features">Features</a>
+      <a href="#subscribe">Pricing</a>
+      <a href="#manage">Manage Subscription</a>
+      <a href="mailto:support@aisynq.ai">Support</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+    </div>
+    <p class="footer-copy">© 2026 AiSynq. All rights reserved. AI for Automotive Intelligence.</p>
+  </footer>
+
+</body>
+</html>
